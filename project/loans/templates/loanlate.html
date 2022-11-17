@@ -1,0 +1,55 @@
+{% extends "layout.html" %} {% block title %} Late Loans {% endblock %} {% block
+head %} {{ super() }}
+<style type="text/css">
+  .alltext {
+    color: #336699;
+  }
+
+  td {
+    text-align: center;
+    width: 10%;
+  }
+
+  tr {
+    text-align: center;
+  }
+  
+</style>
+
+{% endblock %} {% block content %}
+<br>
+<h1>Late loans</h1><br>
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 300px">Loan ID</th>
+      <th scope="col" style="width: 260px">User ID</th>
+      <th scope="col" style="width: 290px">User Name</th>
+      <th scope="col" style="width: 270px">Book ID</th>
+      <th scope="col" style="width: 280px">Book Name</th>
+      <th scope="col" style="width: 280px">Loan Date</th>
+      <th scope="col" style="width: 290px">Return Date</th>
+      <th scope="col" style="width: 310px"></th>
+    </tr>
+  </thead>
+  <!-- SHOWS ALL LATE LOANS IN LOOP USING JINJA -->
+  {%- for loan in late_loans %}
+  <table class="table table-striped table-dark">
+    <tbody>
+      <tr>
+        <!-- GETTING RELEVANT DETAILS BY USING JINJA -->
+        <td>{{ loan.loan_id }}</td>
+        <td>{{ loan.user_id }}</td>
+        <td>{{ loan.Users.user_name }}</td>
+        <td>{{ loan.book_id }}</td>
+        <td>{{ loan.Books.book_name }}</td>
+        <td>{{ loan.loandate }}</td>
+        <td>{{ loan.returndate }}</td>
+        <!-- LOAN RETURN BUTTON -->
+        <td><a class="btn btn-primary" href="/loans/loanreturn/{{loan.loan_id}}">Return Book</a></td>
+      </tr>
+      </thead>
+  </table>
+
+  {% endfor %}
+  {% endblock %}

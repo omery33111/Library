@@ -1,0 +1,25 @@
+{% extends "layout.html" %} {% block title %} Add Book {% endblock %} {% block
+  head %} {{ super() }}
+  <style type="text/css">
+    .alltext {
+      color: #336699;
+    }
+  </style>
+  {% endblock %}
+  {% block content %}
+  &nbsp;<h2>Add A Book</h2>
+  <!-- FORM THAT INCLUDES 4 FIELDS -->
+  <form action="" method="POST"><br>
+      <input required name="book_name" type="text" placeholder="Book Name" maxlength = "25"><br><br>
+      <input required name="author" type="text"  placeholder="Author" maxlength = "25"><br><br>
+      <input required name="published" type="number"  placeholder="Year Published" min = "0" max = "2022"><br><br>
+      <label>Loan Type: </label>
+      <select required name="loantype">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select><br><br>
+      <button class="btn btn-success" type="submit">Add book</button>
+  </form><br><br>
+  {% endblock %}
+  

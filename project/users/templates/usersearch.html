@@ -1,0 +1,62 @@
+{% extends "layout.html" %} {% block title %} Search A User {% endblock %} {% block
+head %} {{ super() }}
+<style type="text/css">
+  .alltext {
+    color: #336699;
+  }
+
+  td {
+    text-align: center;
+    width: 10%;
+  }
+
+  tr {
+    text-align: center;
+  }
+
+  .mydiv {
+    display: inline;
+  }
+</style>
+
+{% endblock %}
+
+{% block content %}
+&nbsp;<h1>User Search</h1><br><br>
+
+<!-- FORM THAT MADE IN ORDER TO SEARCH USERS IN THIS PAGE -->
+<form class="mydiv" action="/users/usersearch" method="POST">
+  &nbsp; <input name="usersearch" type="text" placeholder="User Name">
+  <button class="btn btn-success" Type="submit">Search User</button></a>
+</form>
+
+<!-- BUTTON TO REDIRECT TO ADD USER -->
+<a style="padding-left: 865px;" class="mydiv" href="/users/useradd"><button type="button" class="btn btn-secondary">Add User</button></a><br><br>
+
+
+<!-- SHOWS SEARCHED USER -->
+<table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col" style="width: 270px">User ID</th>
+      <th scope="col" style="width: 270px">User Name</th>
+      <th scope="col" style="width: 270px">Age</th>
+      <th scope="col" style="width: 270px">City</th>
+      <th scope="col" style="width: 270px"></th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <!-- GETTING USER DETAILS BY USING JINJA -->
+      <td>{{ user.user_id }}</td>
+      <td>{{ user.user_name }}</td>
+      <td>{{ user.age }}</td>
+      <td>{{ user.city }}</td>
+      <!-- DELETE USER BUTTON -->
+      <td><a class="btn btn-danger" href="/users/userdelete/{{user.user_id}}">Delete</a></td>
+    </tr>
+    </thead>
+</table>
+
+{% endblock %}
