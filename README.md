@@ -1,6 +1,6 @@
 # Library Project 📚
 
-I'm a student at John Bryce Academy. During the semester I got a project which simulates librarian's point of view working on a library.
+This is a project which simulates librarian's point of view working on a library.
 
 
 ## Project Missions
