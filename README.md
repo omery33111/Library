@@ -3,7 +3,7 @@
 This is a project which simulates librarian's point of view working on a library.
 
 
-## Project Missions
+## Project Functions
 
 The project includes different types of actions:
 
